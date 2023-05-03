@@ -16,6 +16,7 @@ import java.util.Date;
 public class RendezVous {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "rendezvous_id")
     private Long id;
     private LocalDateTime date;
 

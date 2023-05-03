@@ -15,6 +15,8 @@ import java.util.Date;
 public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "consultation_id")
+
     private Long id;
     private LocalDateTime date;
     private String status;

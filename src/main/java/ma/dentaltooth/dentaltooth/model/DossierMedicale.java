@@ -11,6 +11,7 @@ import ma.dentaltooth.dentaltooth.model.users.Secretaire;
 public class DossierMedicale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "dossier_id")
     private Long id;
     private String libelle;
     private String antecedents;

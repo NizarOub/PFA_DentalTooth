@@ -5,17 +5,20 @@ import lombok.*;
 import ma.dentaltooth.dentaltooth.model.users.Dentiste;
 import ma.dentaltooth.dentaltooth.model.users.Secretaire;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Caisse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "caisse_id")
     private Long id;
     private String title;
     private String montant;
 
     private String description;
-    private String date;
+    private LocalDateTime date;
 
     @OneToOne(mappedBy = "caisse")
     private Dentiste dentiste;

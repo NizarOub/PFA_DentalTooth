@@ -13,6 +13,7 @@ import java.util.Collection;
 public class Acte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "acte_id")
     private Long id;
     private String libelle;
     private String description;

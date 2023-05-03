@@ -13,10 +13,10 @@ import java.util.Date;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
+@Table
 public class RendezVous {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "rendezvous_id")
     private Long id;
     private LocalDateTime date;
 

@@ -6,10 +6,10 @@ import ma.dentaltooth.dentaltooth.model.users.Secretaire;
 
 @Entity
 @Data@NoArgsConstructor@AllArgsConstructor
+@Table
 public class Statistique {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "statistique_id")
     private Long id;
     private String libelle;
     private int valeur;

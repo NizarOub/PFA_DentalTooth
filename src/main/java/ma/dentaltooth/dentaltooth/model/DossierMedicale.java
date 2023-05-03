@@ -8,10 +8,10 @@ import ma.dentaltooth.dentaltooth.model.users.Secretaire;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
+@Table
 public class DossierMedicale {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "dossier_id")
     private Long id;
     private String libelle;
     private String antecedents;

@@ -7,10 +7,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
+@Table
 public class Facture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "facture_id")
     private Long id;
     private int montant_total;
     private LocalDateTime date;

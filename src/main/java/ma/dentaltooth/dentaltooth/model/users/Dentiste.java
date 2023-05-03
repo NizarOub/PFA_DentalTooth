@@ -13,6 +13,7 @@ import java.util.Collection;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
+@Table
 public class Dentiste extends Utilisateur{
 
 

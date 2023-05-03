@@ -11,6 +11,7 @@ import java.util.Collection;
 
 @Entity
 @Data@NoArgsConstructor@AllArgsConstructor
+@Table
 public class Secretaire extends Utilisateur {
 
     // Une secrétaire peut gérer plusieurs patients

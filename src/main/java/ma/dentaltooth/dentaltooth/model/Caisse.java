@@ -9,10 +9,10 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
+@Table
 public class Caisse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "caisse_id")
     private Long id;
     private String title;
     private String montant;

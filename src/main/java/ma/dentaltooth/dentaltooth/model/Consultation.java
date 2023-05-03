@@ -12,11 +12,10 @@ import java.util.Date;
 
 @Entity
 @Data @NoArgsConstructor @AllArgsConstructor
+@Table
 public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "consultation_id")
-
     private Long id;
     private LocalDateTime date;
     private String status;

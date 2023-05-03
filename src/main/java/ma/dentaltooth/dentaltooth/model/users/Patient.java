@@ -36,7 +36,7 @@ public class Patient {
     private Collection<Consultation> consultations;
 
     // Un Patient peut avoir un seul DossierMedical
-    @OneToOne
+    @OneToOne(mappedBy = "patient")
     private DossierMedicale dossierMedicale;
 
     // Un Patient peut être créé par une Secrétaire

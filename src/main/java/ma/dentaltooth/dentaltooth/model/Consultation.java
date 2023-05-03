@@ -29,6 +29,6 @@ public class Consultation {
     @OneToMany(mappedBy = "consultation")
     private Collection<Acte> actes;
 
-    @OneToOne(mappedBy = "consultation")
+    @OneToOne
     private RendezVous rendezVous;
 }

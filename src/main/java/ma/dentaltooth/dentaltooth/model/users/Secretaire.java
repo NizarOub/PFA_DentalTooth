@@ -35,6 +35,6 @@ public class Secretaire extends Utilisateur {
     private Collection<Statistique> statistiques;
 
     // Une secrétaire peut accéder à la caisse pour enregistrer des paiements de ses patients
-    @OneToOne
+    @OneToOne(mappedBy = "secretaire")
     private Caisse caisse;
 }

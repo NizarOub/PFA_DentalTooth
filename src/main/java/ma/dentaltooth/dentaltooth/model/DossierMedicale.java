@@ -17,7 +17,7 @@ public class DossierMedicale {
     private String antecedents;
     private String allergies;
 
-    @OneToOne(mappedBy = "dossierMedicale")
+    @OneToOne
     private Patient patient;
 
     @ManyToOne

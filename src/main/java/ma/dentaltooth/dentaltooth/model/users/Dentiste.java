@@ -26,6 +26,6 @@ public class Dentiste extends Utilisateur{
     private Collection<Consultation> consultations;
 
     // Un dentiste peut accéder à la caisse pour enregistrer des paiements de ses patients
-    @OneToOne
+    @OneToOne(mappedBy = "dentiste")
     private Caisse caisse;
 }

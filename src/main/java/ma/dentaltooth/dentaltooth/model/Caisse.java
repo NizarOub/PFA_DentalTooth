@@ -20,9 +20,9 @@ public class Caisse {
     private String description;
     private LocalDateTime date;
 
-    @OneToOne(mappedBy = "caisse")
+    @OneToOne
     private Dentiste dentiste;
-    @OneToOne(mappedBy = "caisse")
+    @OneToOne
     private Secretaire secretaire;
     @OneToOne(mappedBy = "caisse")
     private Facture facture;

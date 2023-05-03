@@ -28,6 +28,6 @@ public class RendezVous {
 
     @ManyToOne
     private Secretaire secretaire;
-    @OneToOne
+    @OneToOne(mappedBy = "rendezVous")
     private Consultation consultation;
 }

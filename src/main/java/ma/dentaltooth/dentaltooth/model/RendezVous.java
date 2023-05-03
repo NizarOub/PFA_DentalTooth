@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.dentaltooth.dentaltooth.model.users.Dentiste;
 import ma.dentaltooth.dentaltooth.model.users.Patient;
+import ma.dentaltooth.dentaltooth.model.users.Secretaire;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -25,7 +26,7 @@ public class RendezVous {
     private Patient patient;
 
     @ManyToOne
-    private Patient secretaire;
+    private Secretaire secretaire;
     @OneToOne
     private Consultation consultation;
 }

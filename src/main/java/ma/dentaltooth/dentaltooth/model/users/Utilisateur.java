@@ -8,14 +8,16 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data@NoArgsConstructor@AllArgsConstructor
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Utilisateur {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     private String nom;
     private String prenom;
     private String login;
     private String password;
     private String tel;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

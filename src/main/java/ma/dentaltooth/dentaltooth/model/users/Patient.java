@@ -3,6 +3,7 @@ package ma.dentaltooth.dentaltooth.model.users;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.dentaltooth.dentaltooth.model.Consultation;
@@ -12,7 +13,7 @@ import ma.dentaltooth.dentaltooth.model.RendezVous;
 import java.util.Collection;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor @Builder
 @Table
 @PrimaryKeyJoinColumn(name = "user_id")
 public class Patient {

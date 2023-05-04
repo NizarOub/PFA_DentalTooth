@@ -17,8 +17,6 @@ import java.util.Optional;
 public class DentalToothApplication {
 
 
-    @Autowired
-    private PatientRepository patientRepository;
     public static void main(String[] args) {
         SpringApplication.run(DentalToothApplication.class, args);
     }

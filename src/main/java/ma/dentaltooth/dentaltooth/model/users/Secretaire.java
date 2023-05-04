@@ -15,23 +15,23 @@ import java.util.Collection;
 public class Secretaire extends Utilisateur {
 
     // Une secrétaire peut gérer plusieurs patients
-    @OneToMany(mappedBy = "secretaire")
+    @OneToMany(mappedBy = "secretaire", fetch = FetchType.LAZY)
     private Collection<Patient> patients;
 
     // Une secrétaire peut planifier plusieurs rendez-vous
-    @OneToMany(mappedBy = "secretaire")
+    @OneToMany(mappedBy = "secretaire", fetch = FetchType.LAZY)
     private Collection<RendezVous> rendezVous;
 
     // Une secrétaire peut gérer plusieurs dossiers médicaux
-    @OneToMany(mappedBy = "secretaire")
+    @OneToMany(mappedBy = "secretaire", fetch = FetchType.LAZY)
     private Collection<DossierMedicale> dossierMedicaux;
 
     // Une secrétaire peut enregistrer plusieurs actes réalisés
-    @OneToMany(mappedBy = "secretaire")
+    @OneToMany(mappedBy = "secretaire", fetch = FetchType.LAZY)
     private Collection<Acte> actes;
 
     // Une secrétaire peut générer plusieurs statistiques sur l'activité du cabinet dentaire
-    @OneToMany(mappedBy = "secretaire")
+    @OneToMany(mappedBy = "secretaire", fetch = FetchType.LAZY)
     private Collection<Statistique> statistiques;
 
     // Une secrétaire peut accéder à la caisse pour enregistrer des paiements de ses patients

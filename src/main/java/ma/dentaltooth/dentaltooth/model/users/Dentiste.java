@@ -18,11 +18,11 @@ public class Dentiste extends Utilisateur{
 
 
     // Un dentiste peut avoir plusieurs rendez-vous
-    @OneToMany(mappedBy = "dentiste")
+    @OneToMany(mappedBy = "dentiste", fetch = FetchType.LAZY)
     private Collection<RendezVous> rendezVous;
 
     // Un dentiste peut réaliser plusieurs consultations
-    @OneToMany(mappedBy = "dentiste")
+    @OneToMany(mappedBy = "dentiste", fetch = FetchType.LAZY)
     private Collection<Consultation> consultations;
 
     // Un dentiste peut accéder à la caisse pour enregistrer des paiements de ses patients

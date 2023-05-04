@@ -12,15 +12,14 @@ import ma.dentaltooth.dentaltooth.model.RendezVous;
 import java.util.Collection;
 
 @Entity
-@Data@NoArgsConstructor@AllArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor
 @Table
+@PrimaryKeyJoinColumn(name = "user_id")
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "patient_name")
     private String nom;
-    @Column(name = "patient_prenom")
     private String prenom;
     private String adresse;
     private String tel;
@@ -28,11 +27,11 @@ public class Patient {
 
 
     // Un Patient peut avoir plusieurs RendezVous
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
     private Collection<RendezVous> rendezVous;
 
     // Un Patient peut avoir plusieurs Consultations
-    @OneToMany(mappedBy = "patient")
+    @OneToMany(mappedBy = "patient", fetch = FetchType.LAZY)
     private Collection<Consultation> consultations;
 
     // Un Patient peut avoir un seul DossierMedical

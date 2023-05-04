@@ -26,7 +26,7 @@ public class Consultation {
     @ManyToOne
     private Patient patient;
 
-    @OneToMany(mappedBy = "consultation")
+    @OneToMany(mappedBy = "consultation", fetch = FetchType.LAZY)
     private Collection<Acte> actes;
 
     @OneToOne

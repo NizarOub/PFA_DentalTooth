@@ -43,6 +43,4 @@ public class Patient {
     @ManyToOne
     private Secretaire secretaire;
 
-
-
 }

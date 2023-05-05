@@ -13,36 +13,45 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PatientService implements IPatientService{
+public class PatientService implements IPatientService {
     @Autowired
     private PatientRepository patientRepository;
 
 
     @Override
-    public List<Patient> getAllPatient() {
+    public List<Patient> getAllPatients() {
         return this.patientRepository.findAll();
     }
 
-    // paginated
     @Override
-    public Page<Patient> getAllPatientPage(int p, int s) {
-        return this.patientRepository.findAll(PageRequest.of(p,s));
+    public void savePatient(Patient patient) {
+        this.patientRepository.save(patient);
     }
 
     @Override
-    public Page<Patient> findPatientByPrenom(String keyword, Pageable pageable) {
-        return this.patientRepository.findByPrenomContains(keyword,pageable);
+    public Patient getPatientById(long id) {
+        Optional<Patient> optional = patientRepository.findById(id);
+        Patient patient = null;
+        if (optional.isPresent()){
+            patient = optional.get();
+        }
+        else {
+            throw new RuntimeException("Patient not found for id :: " + id);
+        }
+        return patient;
     }
 
     @Override
-    public Page<Patient> chercherPatient(String keyword, Pageable pageable) {
-        return this.patientRepository.chercher(keyword,pageable);
-    }
-
-    @Override
-    public void deletePatient(long id) {
+    public void deletePatientById(long id) {
         this.patientRepository.deleteById(id);
     }
 
+    @Override
+    public Page<Patient> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
+        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
+                Sort.by(sortField).descending();
 
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
+        return this.patientRepository.findAll(pageable);
+    }
 }

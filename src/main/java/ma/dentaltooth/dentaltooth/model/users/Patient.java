@@ -25,6 +25,8 @@ public class Patient {
     private String adresse;
     private String tel;
     private String mutuelle;
+    @Enumerated(EnumType.STRING)
+    private Sexe sexe;
 
 
     // Un Patient peut avoir plusieurs RendezVous

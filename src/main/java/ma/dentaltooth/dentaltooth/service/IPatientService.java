@@ -1,6 +1,7 @@
 package ma.dentaltooth.dentaltooth.service;
 
 import ma.dentaltooth.dentaltooth.model.users.Patient;
+import ma.dentaltooth.dentaltooth.model.users.Sexe;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

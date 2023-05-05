@@ -3,6 +3,7 @@ package ma.dentaltooth.dentaltooth.controller;
 
 import ma.dentaltooth.dentaltooth.model.users.Patient;
 import ma.dentaltooth.dentaltooth.model.users.Secretaire;
+import ma.dentaltooth.dentaltooth.model.users.Sexe;
 import ma.dentaltooth.dentaltooth.service.IPatientService;
 import ma.dentaltooth.dentaltooth.service.ISecretaireService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class PatientController {
     public String viewHomePage(Model model) {
         return findPaginated(1, "nom", "asc", model);
     }
+
 
     @GetMapping("/showNewPatientForm")
     public String showNewPatientForm(Model model) {

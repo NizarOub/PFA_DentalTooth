@@ -1,6 +1,7 @@
 package ma.dentaltooth.dentaltooth.service;
 
 import ma.dentaltooth.dentaltooth.model.users.Patient;
+import ma.dentaltooth.dentaltooth.model.users.Sexe;
 import ma.dentaltooth.dentaltooth.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,11 +19,11 @@ public class PatientService implements IPatientService {
     private PatientRepository patientRepository;
 
 
+
     @Override
     public List<Patient> getAllPatients() {
         return this.patientRepository.findAll();
     }
-
     @Override
     public void savePatient(Patient patient) {
         this.patientRepository.save(patient);

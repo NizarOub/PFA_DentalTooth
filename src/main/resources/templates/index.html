@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-  <meta charset="ISO-8859-1">
+  <meta charset="UTF-8">
   <title>Patient Management System</title>
 
   <link rel="stylesheet"
@@ -11,7 +11,6 @@
 
 </head>
 <body>
-
 <div class="container my-2">
   <h1>Patients List</h1>
 
@@ -40,6 +39,10 @@
         <a th:href="@{'/page/' + ${currentPage} + '?sortField=mutuelle&sortDir=' + ${reverseSortDir}}">
           Patient Mutuelle</a>
       </th>
+      <th>
+        <a th:href="@{'/page/' + ${currentPage} + '?sortField=sexe&sortDir=' + ${reverseSortDir}}">
+          Sexe</a>
+      </th>
       <th> Actions </th>
     </tr>
     </thead>
@@ -50,8 +53,9 @@
       <td th:text="${p.adresse}"></td>
       <td th:text="${p.tel}"></td>
       <td th:text="${p.mutuelle}"></td>
-      <td> <a th:href="@{/showFormForUpdate/{id}(id=${p.id})}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
-        <a th:href="@{/deletePatient/{id}(id=${p.id})}" class="btn btn-danger"> <i class="bi-trash"> </i> </a>
+      <td th:text="${p.sexe}"></td>
+      <td> <a th:href="@{/showFormForUpdate/{id}(id=${p.id})}" class="btn btn-primary">Update</a>
+        <a th:href="@{/deletePatient/{id}(id=${p.id})}" class="btn btn-danger"> Delete </a>
       </td>
     </tr>
     </tbody>

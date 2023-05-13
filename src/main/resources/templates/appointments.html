@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajouter un nouveau rendez vous</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+<div class="container1">
+  <!-- Side Bar -->
+  <div class="sideBar">
+    <div class="logo">
+      <img th:src="@{/images/logo.png}" alt="">
+    </div>
+
+    <div id="role"><img th:src="@{/images/person-rolodex.svg}" />Secrétaire</div>
+    <div class="side">
+      <div style="background-color: #0097B2;"><a th:href="@{Accueil}"><img class="icon" th:src="@{/images/house.svg}" alt="">
+        Accueil</a></div>
+      <div><a th:href="@{patients}"><img class="icon" th:src="@{/images/person-circle.svg}" alt=""> Patient</a>
+      </div>
+      <div><a th:href="@{appointments}"><img class="icon" th:src="@{/images/calendar-week.svg}" alt=""> Agenda</a></div>
+      <div><a href=""><img class="icon" th:src="@{/images/clipboard-data.svg}" alt="">Statistiques</a></div>
+      <div><a href=""><img class="icon" th:src="@{/images/cash-coin.svg}" alt=""> Caisse</a></div>
+      <div><a href=""><img class="icon" th:src="@{/images/box-arrow-right.svg}" alt=""> Déconnexion</a></div>
+    </div>
+  </div>
+
+  <div class="main">
+
+<div class="container mt-3">
+  <h1>Liste des rendez-vous</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Dentiste</th>
+      <th>Patient</th>
+      <th>Secrétaire</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ap:${appointmentsList}">
+      <td th:text="${ap.id}"></td>
+      <td th:text="${ap.date}"></td>
+      <td th:text="${ap.dentiste.nom}"></td>
+      <td th:text="${ap.patient.nom}"></td>
+      <td th:text="${ap.secretaire.nom}"></td>
+      <td>
+        <button class="btn btn-primary" th:href="@{/appointments/{id}/edit(id=${ap.id})}">Modifier</button>
+        <form th:action="@{/appointments/{id}(id=${ap.id})}" method="post" style="display: inline;">
+          <input type="hidden" name="_method" value="DELETE" />
+          <button class="btn btn-danger" type="submit">Supprimer</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <a class="btn btn-success" th:href="@{AddAppointments}">Ajouter un rendez-vous</a>
+</div>
+  </div>
+</div>
+
+</body>
+</html>

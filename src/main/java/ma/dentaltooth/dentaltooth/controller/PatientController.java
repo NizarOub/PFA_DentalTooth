@@ -2,16 +2,18 @@ package ma.dentaltooth.dentaltooth.controller;
 
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import ma.dentaltooth.dentaltooth.model.users.Patient;
+import ma.dentaltooth.dentaltooth.model.users.Secretaire;
 import ma.dentaltooth.dentaltooth.repository.PatientRepository;
+import ma.dentaltooth.dentaltooth.repository.SecretaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +23,6 @@ import java.util.List;
 public class PatientController {
     @Autowired
     private PatientRepository patientRepository;
-
  /*   @GetMapping("/index")
     public String patients(Model model,
                           @RequestParam(name = "page",defaultValue ="0") int page,
@@ -36,7 +37,7 @@ public class PatientController {
         return "patients";
     }*/
 
-    @GetMapping("/index")
+    @GetMapping("/patients")
     public String patients(Model model) {
         List<Patient> patientList = patientRepository.findAll();
         model.addAttribute("patientList", patientList);
@@ -45,9 +46,31 @@ public class PatientController {
 
     @GetMapping("/")
     public String home(){
-        return "redirect:/layout";
+        return "Accueil";
+    }
+    @GetMapping("/Accueil")
+    public String Accueil(){
+        return "Accueil";
     }
 
+    @GetMapping("/AddPatient")
+    public String addPatients(Model model){
+        model.addAttribute("patient",new Patient());
+        return "AddPatient";
+    }
+    @RequestMapping("/delete")
+    public String delete(Long id){
+        patientRepository.deleteById(id);
+        return "redirect:/patients";
+    }
+
+
+
+    @PostMapping("/save")
+    public String enregistrerPatient(@ModelAttribute("patient") Patient patient) {
+        patientRepository.save(patient);
+        return "redirect:/patients";
+    }
 
 
 }

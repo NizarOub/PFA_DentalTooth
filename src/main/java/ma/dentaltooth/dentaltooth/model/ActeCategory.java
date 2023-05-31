@@ -9,13 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Facture {
+public class ActeCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String etat;
-
     @ManyToOne
-    private SituationFinanciere situationFinanciere;
+    private Acte acte;
 }

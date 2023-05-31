@@ -4,26 +4,24 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ma.dentaltooth.dentaltooth.model.users.Secretaire;
 
-import java.util.Collection;
+import java.util.List;
 
 @Entity
-@Data@NoArgsConstructor@AllArgsConstructor
-@Table
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Acte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "acte_id")
     private Long id;
+
     private String libelle;
-    private String description;
-    private double prix;
-    private String categorie;
 
     @ManyToOne
-    private Consultation consultation;
+    private IM im;
 
-    @ManyToOne
-    private Secretaire secretaire;
+    @OneToMany(mappedBy = "acte")
+    private List<ActeCategory> acteMedicalList;
+
 }

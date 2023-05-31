@@ -12,22 +12,18 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Consultation {
+
+public class Ordonnance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Date date;
 
-    @OneToOne
-    private SituationFinanciere situationFinanciere;
-
     @ManyToOne
-    private RendezVous rendezVous;
+    private Consultation consultation;
 
-    @OneToMany(mappedBy = "consultation")
-    private List<Ordonnance> ordonnanceList;
+    @OneToMany(mappedBy = "ordonnance")
+    private List<Prescription> prescriptionList;
 
-    @OneToMany(mappedBy = "consultation")
-    private List<IM> imList ;
 }

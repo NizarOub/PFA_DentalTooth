@@ -4,30 +4,33 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ma.dentaltooth.dentaltooth.model.users.Dentiste;
-import ma.dentaltooth.dentaltooth.model.users.Patient;
-import ma.dentaltooth.dentaltooth.model.users.Secretaire;
+import ma.pfa.dentaltooth.model.users.Patient;
+import ma.pfa.dentaltooth.model.users.Staff;
 
-import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor
-@Table
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RendezVous {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime date;
 
-    @ManyToOne
-    private Dentiste dentiste;
+    private Date date;
+
+    private String motif;
+    private String etat;
+    private boolean estUrgent;
 
     @ManyToOne
     private Patient patient;
 
     @ManyToOne
-    private Secretaire secretaire;
-    @OneToOne(mappedBy = "rendezVous")
-    private Consultation consultation;
+    private Staff staff;
+
+    @OneToMany(mappedBy = "rendezVous")
+    private List<Consultation> consultationList;
 }

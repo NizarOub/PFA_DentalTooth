@@ -5,29 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
 import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Consultation {
+public class Prescription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Date date;
-
-    @OneToOne
-    private SituationFinanciere situationFinanciere;
+    private String foodToStrict;
 
     @ManyToOne
-    private RendezVous rendezVous;
+    private Ordonnance ordonnance;
 
-    @OneToMany(mappedBy = "consultation")
-    private List<Ordonnance> ordonnanceList;
-
-    @OneToMany(mappedBy = "consultation")
-    private List<IM> imList ;
+    @OneToMany(mappedBy = "prescription")
+    private List<Medicament> medicamentList;
 }

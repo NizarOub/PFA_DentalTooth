@@ -4,30 +4,29 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.pfa.dentaltooth.model.users.Patient;
 
-import java.util.Date;
 import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Consultation {
+public class SituationFinanciere {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private double totalAPayer;
+    private double reste;
+    private double paye;
 
-    private Date date;
 
     @OneToOne
-    private SituationFinanciere situationFinanciere;
+    private Consultation consultation;
+
+    @OneToMany(mappedBy = "situationFinanciere")
+    private List<Facture> factures;
 
     @ManyToOne
-    private RendezVous rendezVous;
-
-    @OneToMany(mappedBy = "consultation")
-    private List<Ordonnance> ordonnanceList;
-
-    @OneToMany(mappedBy = "consultation")
-    private List<IM> imList ;
+    private Patient patient;
 }

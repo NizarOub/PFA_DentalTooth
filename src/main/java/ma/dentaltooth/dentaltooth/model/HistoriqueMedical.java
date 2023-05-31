@@ -4,18 +4,18 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.pfa.dentaltooth.model.users.Patient;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Facture {
+
+public class HistoriqueMedical {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String etat;
-
     @ManyToOne
-    private SituationFinanciere situationFinanciere;
+    private Patient patient;
 }

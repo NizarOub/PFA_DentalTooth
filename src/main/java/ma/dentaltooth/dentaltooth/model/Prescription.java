@@ -5,12 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class Prescription {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +22,5 @@ public class Prescription {
     private Ordonnance ordonnance;
 
     @OneToMany(mappedBy = "prescription")
-    private List<Medicament> medicamentList;
+    private Collection<Medicament> medicamentList;
 }

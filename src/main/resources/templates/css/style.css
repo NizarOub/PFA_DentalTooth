@@ -1,0 +1,78 @@
+body {
+    background-color: blue;
+}
+
+.container1 {
+    background-color: red;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.sideBar {
+    background-color: #0C8D74;
+    width: 20%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.side div {
+    background-color: #00B290;
+    margin: 10px 0px;
+    padding: 10px 5px;
+    width: 80%;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.side div a {
+    text-decoration: none;
+    color: white;
+}
+
+.side div:last-child {
+    background-color: #FF5757;
+    margin-top: 20%;
+}
+
+#role {
+    color: white;
+    text-align: center;
+    padding: 10px 5px;
+}
+
+.side div:hover {
+    background-color: #0097B2;
+    transition: 0.5s;
+}
+
+.side img {
+    width: 20px;
+    margin-right: 10px;
+    color: white;
+}
+
+.main {
+    width: 80%;
+    padding: 25px 30px 10px 20px;
+    background-color: white;
+    overflow-x: hidden;
+}

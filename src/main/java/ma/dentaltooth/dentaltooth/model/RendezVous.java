@@ -6,15 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.dentaltooth.dentaltooth.model.users.Patient;
 import ma.dentaltooth.dentaltooth.model.users.Staff;
-
-
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class RendezVous {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +30,6 @@ public class RendezVous {
     @ManyToOne
     private Staff staff;
 
-    @OneToMany(mappedBy = "rendezVous")
-    private List<Consultation> consultationList;
+    @OneToMany(mappedBy = "rendezVous",fetch = FetchType.LAZY)
+    private Collection<Consultation> consultationList;
 }

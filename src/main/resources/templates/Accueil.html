@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Accueil</title>
+  <style>
+    .main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .accueil {
+      font-size: 50px;
+      font-weight: bold;
+      width: 70%;
+      height: 70%;
+      background-color: #0097B2
+    }
+
+    .accueil {
+      width: fit-content;
+      height: fit-content;
+    }
+  </style>
+</head>
+
+
+<body>
+<div class="container1">
+  <!-- Side Bar -->
+  <div class="sideBar">
+    <div class="logo">
+      <img th:src="@{/images/logo.png}"/>    </div>
+    <div id="role"><img class="icon" src="./images/person-rolodex.svg" alt=""> Secrétaire</div>
+    <div class="side">
+      <div style="background-color: #0097B2;"><a href="./Accueil.html"><img class="icon"
+                                                                            src="./images/house.svg" alt="">
+        Accueil</a></div>
+      <div><a href="./Patient.html"><img class="icon" src="./images/person-circle.svg" alt=""> Patient</a>
+      </div>
+      <div><a href=""><img class="icon" src="./images/calendar-week.svg" alt=""> Agenda</a></div>
+      <div><a href=""><img class="icon" src="./images/clipboard-data.svg" alt="">Statistiques</a></div>
+      <div><a href=""><img class="icon" src="./images/cash-coin.svg" alt=""> Caisse</a></div>
+      <div><a href=""><img class="icon" src="./images/box-arrow-right.svg" alt=""> Déconnexion</a></div>
+    </div>
+  </div>
+  <!-- End Side Bar -->
+
+  <!-- Main -->
+  <div class="main">
+    <h1>Bienvenue Sur Le Cabinet Dentaire</h1>
+    <div class="accueil">
+      <img src="./images/backAcceuil.png" alt="">
+    </div>
+  </div>
+  <!-- End Main -->
+</div>
+<!-- End Content -->
+</body>
+</html>

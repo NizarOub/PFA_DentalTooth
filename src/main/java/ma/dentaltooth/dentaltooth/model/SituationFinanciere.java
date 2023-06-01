@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.dentaltooth.dentaltooth.model.users.Patient;
 
+
 import java.util.Collection;
 import java.util.List;
 

@@ -1,29 +1,26 @@
 package ma.dentaltooth.dentaltooth.model.users;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ma.pfa.dentaltooth.model.HistoriqueMedical;
-import ma.pfa.dentaltooth.model.RendezVous;
-import ma.pfa.dentaltooth.model.SituationFinanciere;
+import ma.dentaltooth.dentaltooth.model.HistoriqueMedical;
+import ma.dentaltooth.dentaltooth.model.RendezVous;
+import ma.dentaltooth.dentaltooth.model.SituationFinanciere;
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class Patient extends User{
-    @OneToMany(mappedBy = "patient")
-    private List<RendezVous> rendezVousList;
-    @OneToMany(mappedBy = "patient")
-    private List<HistoriqueMedical> historiqueMedicalList;
-    @OneToMany(mappedBy = "patient")
-    private List<SituationFinanciere> situationFinanciereList;
+    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)
+    private Collection<RendezVous> rendezVousList;
+    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)
+    private Collection<HistoriqueMedical> historiqueMedicalList;
+    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)
+    private Collection<SituationFinanciere> situationFinanciereList;
 
     @ManyToOne
     private Staff staff;

@@ -1,27 +1,23 @@
 package ma.dentaltooth.dentaltooth.model.users;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ma.pfa.dentaltooth.model.RendezVous;
+import ma.dentaltooth.dentaltooth.model.RendezVous;
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class Staff extends User{
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "staff")
-    private List<Patient> patients;
-    @OneToMany(mappedBy = "staff")
-    private List<RendezVous> rendezVousList;
+    @OneToMany(mappedBy = "staff",fetch = FetchType.LAZY)
+    private Collection<Patient> patients;
+    @OneToMany(mappedBy = "staff",fetch = FetchType.LAZY)
+    private Collection<RendezVous> rendezVousList;
 }

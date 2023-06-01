@@ -6,9 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class ActeCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,9 +1,7 @@
 package ma.dentaltooth.dentaltooth;
 
 import ma.dentaltooth.dentaltooth.model.users.Patient;
-import ma.dentaltooth.dentaltooth.model.users.Secretaire;
 import ma.dentaltooth.dentaltooth.repository.PatientRepository;
-import ma.dentaltooth.dentaltooth.repository.SecretaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

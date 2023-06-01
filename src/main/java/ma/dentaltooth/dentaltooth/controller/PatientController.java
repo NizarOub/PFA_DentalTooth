@@ -1,18 +1,10 @@
 package ma.dentaltooth.dentaltooth.controller;
 
 
-import ma.dentaltooth.dentaltooth.model.users.Patient;
-import ma.dentaltooth.dentaltooth.model.users.Secretaire;
-import ma.dentaltooth.dentaltooth.model.users.Sexe;
 import ma.dentaltooth.dentaltooth.service.IPatientService;
-import ma.dentaltooth.dentaltooth.service.ISecretaireService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 public class PatientController {
@@ -20,15 +12,21 @@ public class PatientController {
     @Autowired
     private IPatientService patientService;
 
-    @Autowired
-    private ISecretaireService secretaireService;
 
-
+    /*
     @GetMapping("/")
     public String viewHomePage(Model model) {
         return findPaginated(1, "nom", "asc", model);
     }
 
+     */
+
+    @GetMapping("/accueil")
+    public String accueil(){
+        return "Accueil";
+    }
+
+    /*
 
     @GetMapping("/showNewPatientForm")
     public String showNewPatientForm(Model model) {
@@ -87,4 +85,6 @@ public class PatientController {
         model.addAttribute("patientList", patientList);
         return "index";
     }
+
+     */
 }

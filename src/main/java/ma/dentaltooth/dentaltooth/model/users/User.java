@@ -12,9 +12,9 @@ import java.util.Date;
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+@Table
+public abstract class User {
+    @Id @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     private String email;
     private String pass;

@@ -6,9 +6,10 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ma.pfa.dentaltooth.model.HistoriqueMedical;
-import ma.pfa.dentaltooth.model.RendezVous;
-import ma.pfa.dentaltooth.model.SituationFinanciere;
+import ma.dentaltooth.dentaltooth.model.HistoriqueMedical;
+import ma.dentaltooth.dentaltooth.model.RendezVous;
+import ma.dentaltooth.dentaltooth.model.SituationFinanciere;
+
 
 import java.util.List;
 

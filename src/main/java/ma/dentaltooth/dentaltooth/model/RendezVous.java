@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ma.pfa.dentaltooth.model.users.Patient;
-import ma.pfa.dentaltooth.model.users.Staff;
+import ma.dentaltooth.dentaltooth.model.users.Patient;
+import ma.dentaltooth.dentaltooth.model.users.Staff;
+
 
 import java.util.Date;
 import java.util.List;

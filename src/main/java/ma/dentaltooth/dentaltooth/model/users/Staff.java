@@ -40,9 +40,6 @@ public class Staff extends User{
         this.roles = roles;
     }
 
-    @OneToMany(mappedBy = "staff",fetch = FetchType.LAZY)
-    private Collection<Patient> patients;
-    @OneToMany(mappedBy = "staff",fetch = FetchType.LAZY)
-    private Collection<RendezVous> rendezVousList;
+
 
 }

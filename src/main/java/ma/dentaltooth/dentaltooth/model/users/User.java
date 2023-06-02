@@ -24,24 +24,5 @@ public class User {
     protected String cin;
     protected String tel;
 
-@Table
-public abstract class User {
-    @Id @GeneratedValue(strategy = GenerationType.TABLE)
-    private Long id;
-    private String email;
-    private String pass;
-    private String nom;
-    private String prenom;
-    private String cin;
-    private String tel;
 
-    @Enumerated(EnumType.STRING)
-    protected Sexe sexe;
-    protected Date dateNaissance;
-    protected LocalDateTime dateCreation;
-    protected LocalDateTime dateModification;
-    protected LocalDateTime dateDernierAuth;
-    protected String photo;
-
-}
 }

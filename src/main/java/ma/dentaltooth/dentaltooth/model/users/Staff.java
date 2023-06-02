@@ -2,6 +2,7 @@ package ma.dentaltooth.dentaltooth.model.users;
 
 import jakarta.persistence.*;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,13 +11,14 @@ import ma.dentaltooth.dentaltooth.model.Roles;
 
 
 import java.util.ArrayList;
+
+import java.util.Collection;
+
 import java.util.List;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class Staff extends User{
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
@@ -25,6 +27,7 @@ public class Staff extends User{
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )
     private List<Roles> roles = new ArrayList<>();
+
 
     @OneToMany(mappedBy = "staff")
     private List<Patient> patients;
@@ -36,4 +39,10 @@ public class Staff extends User{
         this.pass = password;
         this.roles = roles;
     }
+
+    @OneToMany(mappedBy = "staff",fetch = FetchType.LAZY)
+    private Collection<Patient> patients;
+    @OneToMany(mappedBy = "staff",fetch = FetchType.LAZY)
+    private Collection<RendezVous> rendezVousList;
+
 }

@@ -9,9 +9,8 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

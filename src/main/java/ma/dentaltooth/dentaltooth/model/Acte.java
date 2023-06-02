@@ -5,12 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class Acte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,6 @@ public class Acte {
     private IM im;
 
     @OneToMany(mappedBy = "acte")
-    private List<ActeCategory> acteMedicalList;
+    private Collection<ActeCategory> acteMedicalList;
 
 }

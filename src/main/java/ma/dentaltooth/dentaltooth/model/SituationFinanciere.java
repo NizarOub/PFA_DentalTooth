@@ -7,12 +7,12 @@ import lombok.NoArgsConstructor;
 import ma.dentaltooth.dentaltooth.model.users.Patient;
 
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class SituationFinanciere {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class SituationFinanciere {
     private Consultation consultation;
 
     @OneToMany(mappedBy = "situationFinanciere")
-    private List<Facture> factures;
+    private Collection<Facture> factures;
 
     @ManyToOne
     private Patient patient;

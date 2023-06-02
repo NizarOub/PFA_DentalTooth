@@ -6,12 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.dentaltooth.dentaltooth.model.users.Patient;
 
-
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class HistoriqueMedical {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -5,14 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-
+@Data @AllArgsConstructor @NoArgsConstructor
+@Table
 public class Ordonnance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +23,6 @@ public class Ordonnance {
     private Consultation consultation;
 
     @OneToMany(mappedBy = "ordonnance")
-    private List<Prescription> prescriptionList;
+    private Collection<Prescription> prescriptionList;
 
 }

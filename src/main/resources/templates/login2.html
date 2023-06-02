@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background-image: url("static/images/1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+
+  .content {
+    width: 400px;
+    height: 400px;
+    background-image: url("static/images/logo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #username {
+    margin-top: 30px;
+    margin-left: 45px;
+    width: 215px;
+    height: 40px;
+    border: 0;
+  }
+
+  #password {
+    margin-top: 30px;
+    margin-left: 45px;
+    width: 215px;
+    height: 40px;
+    border: 0;
+  }
+
+  #btnLogin {
+    margin-top: 29px;
+    margin-left: 15px;
+    width: 152px;
+    height: 44px;
+    border: 0;
+    background-color: white;
+  }
+
+  .div1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 115px;
+  }
+
+
+  .content2 img {
+    border-radius: 80%;
+  }
+</style>
+
+<body>
+
+<div class="container1">
+  <div class="content2">
+    <img th:src="@{/images/accueil.png}" alt="">
+  </div>
+  <div class="content">
+    <!-- form login  -->
+    <div th:if="${param.error}">
+      <div class="alert alert-danger">Invalid Email or Password !!!</div>
+    </div>
+    <div th:if="${param.logout}">
+      <div class="alert alert-success">You have been logged out !!!</div>
+    </div>
+
+    <div class="div1">
+      <form th:action="@{/login}" method="post">
+        <input type="text" id="username" name="username" placeholder="Username">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <div class="mb-3">
+          <button class="btn btn-primary mb-3" type="submit">Login</button>
+          or <a class="link-primary" th:href="@{/registration}">Register</a>
+        </div>
+      </form>
+    </div>
+    <!-- end form login  -->
+
+  </div>
+</div>
+</body>
+
+</html>

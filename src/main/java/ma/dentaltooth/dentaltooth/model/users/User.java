@@ -15,19 +15,19 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private Long id;
-    private String email;
-    private String pass;
-    private String nom;
-    private String prenom;
-    private String cin;
-    private String tel;
+    protected Long id;
+    protected String email;
+    protected String pass;
+    protected String nom;
+    protected String prenom;
+    protected String cin;
+    protected String tel;
     @Enumerated(EnumType.STRING)
-    private Sexe sexe;
-    private Date dateNaissance;
-    private LocalDateTime dateCreation;
-    private LocalDateTime dateModification;
-    private LocalDateTime dateDernierAuth;
-    private String photo;
+    protected Sexe sexe;
+    protected Date dateNaissance;
+    protected LocalDateTime dateCreation;
+    protected LocalDateTime dateModification;
+    protected LocalDateTime dateDernierAuth;
+    protected String photo;
 
 }

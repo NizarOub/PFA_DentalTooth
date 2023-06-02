@@ -2,9 +2,10 @@ package ma.dentaltooth.dentaltooth.service;
 
 import ma.dentaltooth.dentaltooth.Dto.UserDto;
 import ma.dentaltooth.dentaltooth.model.Userr;
+import ma.dentaltooth.dentaltooth.model.users.Staff;
 
 public interface UserService {
     void saveUser(UserDto userDto);
 
-    Userr findUserByEmail(String email);
+    Staff findUserByEmail(String email);
 }

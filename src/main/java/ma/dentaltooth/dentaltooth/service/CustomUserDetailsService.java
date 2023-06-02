@@ -1,6 +1,7 @@
 package ma.dentaltooth.dentaltooth.service;
 
 import ma.dentaltooth.dentaltooth.model.Userr;
+import ma.dentaltooth.dentaltooth.model.users.Staff;
 import ma.dentaltooth.dentaltooth.repository.UserrRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,10 +21,10 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
 
-        Userr user = userRepository.findByEmail(usernameOrEmail);
+        Staff user = userRepository.findByEmail(usernameOrEmail);
         if (user != null) {
             return new org.springframework.security.core.userdetails.User(user.getEmail()
-                    , user.getPassword(),
+                    , user.getPass(),
                     user.getRoles().stream()
                             .map((role) -> new SimpleGrantedAuthority(role.getName()))
                             .collect(Collectors.toList()));

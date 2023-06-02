@@ -4,6 +4,7 @@ import ma.dentaltooth.dentaltooth.Dto.TbConstants;
 import ma.dentaltooth.dentaltooth.Dto.UserDto;
 import ma.dentaltooth.dentaltooth.model.Roles;
 import ma.dentaltooth.dentaltooth.model.Userr;
+import ma.dentaltooth.dentaltooth.model.users.Staff;
 import ma.dentaltooth.dentaltooth.repository.RolesRepository;
 import ma.dentaltooth.dentaltooth.repository.UserrRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,13 +32,13 @@ public class UserServiceImpl implements UserService {
         if (role == null)
             role = roleRepository.save(new Roles(TbConstants.Roles.USER));
 
-        Userr user = new Userr(userDto.getName(), userDto.getEmail(), passwordEncoder.encode(userDto.getPassword()),
+        Staff user = new Staff(userDto.getName(), userDto.getEmail(), passwordEncoder.encode(userDto.getPassword()),
                 Arrays.asList(role));
         userRepository.save(user);
     }
 
     @Override
-    public Userr findUserByEmail(String email) {
+    public Staff findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 }

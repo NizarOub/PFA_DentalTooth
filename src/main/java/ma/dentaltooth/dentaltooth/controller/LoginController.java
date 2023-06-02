@@ -7,6 +7,7 @@ package ma.dentaltooth.dentaltooth.controller;
 import jakarta.validation.Valid;
 import ma.dentaltooth.dentaltooth.Dto.UserDto;
 import ma.dentaltooth.dentaltooth.model.Userr;
+import ma.dentaltooth.dentaltooth.model.users.Staff;
 import ma.dentaltooth.dentaltooth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,7 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String loginForm() {
-        return "login";
+        return "login2";
     }
 
     @GetMapping("/registration")
@@ -44,7 +45,7 @@ public class LoginController {
             @Valid @ModelAttribute("user") UserDto userDto,
             BindingResult result,
             Model model) {
-        Userr existingUser = userService.findUserByEmail(userDto.getEmail());
+        Staff existingUser = userService.findUserByEmail(userDto.getEmail());
 
         if (existingUser != null)
             result.rejectValue("email", null,

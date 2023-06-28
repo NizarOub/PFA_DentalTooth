@@ -20,7 +20,7 @@ public class SpringSecurity {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .authorizeHttpRequests((requests) -> requests
+                .authorizeHttpRequests((requests) -> requests.requestMatchers("/ressources/**").permitAll().requestMatchers("/static/**").permitAll().requestMatchers("/css/**").permitAll().requestMatchers("/images/**").permitAll()
                         .requestMatchers("/registration/**").permitAll()
                         .requestMatchers("/login/**").permitAll()
                         .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")

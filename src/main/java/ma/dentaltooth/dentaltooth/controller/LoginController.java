@@ -30,7 +30,7 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String loginForm() {
-        return "login";
+        return "login2";
     }
 
     @GetMapping("/registration")

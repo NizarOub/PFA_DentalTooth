@@ -1,6 +1,5 @@
 package ma.dentaltooth.dentaltooth.repository;
 
-import ma.dentaltooth.dentaltooth.model.Userr;
 import ma.dentaltooth.dentaltooth.model.users.Staff;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -6,7 +6,6 @@ package ma.dentaltooth.dentaltooth.controller;
 
 import jakarta.validation.Valid;
 import ma.dentaltooth.dentaltooth.Dto.UserDto;
-import ma.dentaltooth.dentaltooth.model.Userr;
 import ma.dentaltooth.dentaltooth.model.users.Staff;
 import ma.dentaltooth.dentaltooth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +17,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Objects;
-
-
 
 @Controller
 public class LoginController {
@@ -30,7 +26,7 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String loginForm() {
-        return "login2";
+        return "login";
     }
 
     @GetMapping("/registration")

@@ -13,7 +13,7 @@ import java.util.Date;
 @Data @AllArgsConstructor @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 
-public class User {
+public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     protected Long id;
@@ -23,6 +23,12 @@ public class User {
     protected String prenom;
     protected String cin;
     protected String tel;
+
+    protected String adresse;
+
+    @Enumerated(EnumType.STRING)
+    private Sexe sexe;
+    private Date dateNaissance;
 
 
 }

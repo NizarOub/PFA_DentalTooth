@@ -15,6 +15,9 @@ import java.util.List;
 @Data @AllArgsConstructor @NoArgsConstructor
 @Table
 public class Patient extends User{
+
+    private String mutuelle;
+
     @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)
     private Collection<RendezVous> rendezVousList;
     @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)

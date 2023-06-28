@@ -1,6 +1,5 @@
 package ma.dentaltooth.dentaltooth.service;
 
-import ma.dentaltooth.dentaltooth.model.Userr;
 import ma.dentaltooth.dentaltooth.model.users.Staff;
 import ma.dentaltooth.dentaltooth.repository.UserrRepository;
 import org.springframework.beans.factory.annotation.Autowired;

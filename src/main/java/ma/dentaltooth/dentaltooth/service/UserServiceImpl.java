@@ -3,7 +3,6 @@ package ma.dentaltooth.dentaltooth.service;
 import ma.dentaltooth.dentaltooth.Dto.TbConstants;
 import ma.dentaltooth.dentaltooth.Dto.UserDto;
 import ma.dentaltooth.dentaltooth.model.Roles;
-import ma.dentaltooth.dentaltooth.model.Userr;
 import ma.dentaltooth.dentaltooth.model.users.Staff;
 import ma.dentaltooth.dentaltooth.repository.RolesRepository;
 import ma.dentaltooth.dentaltooth.repository.UserrRepository;

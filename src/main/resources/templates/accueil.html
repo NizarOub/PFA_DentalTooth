@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragmennts :: boots_trap">
+  <title>Accueil</title>
+  <style>
+    .main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .accueil {
+      font-size: 50px;
+      font-weight: bold;
+      width: 70%;
+      height: 70%;
+      background-color: #0097B2
+    }
+
+    .accueil {
+      width: fit-content;
+      height: fit-content;
+    }
+  </style>
+</head>
+<body>
+<div class="container1">
+  <!-- Side Bar -->
+  <div class="sideBar" th:replace="fragmennts :: nav_bar"></div>
+  <!-- End Side Bar -->
+
+  <!-- Main -->
+  <div class="main">
+    <h1>Bienvenue Sur Le Cabinet Dentaire</h1>
+    <div class="accueil">
+      <img src="./images/backAcceuil.png" alt="">
+    </div>
+  </div>
+  <!-- End Main -->
+</div>
+<!-- End Content -->
+</body>
+</html>

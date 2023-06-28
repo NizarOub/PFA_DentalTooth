@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ma.dentaltooth.dentaltooth.model.users.Staff;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class Roles {
     @Column(nullable = false, unique = true)
     private String name;
     @ManyToMany(mappedBy = "roles")
-    private List<Userr> users = new ArrayList<>();
+    private List<Staff> users = new ArrayList<>();
 
     public Roles(String name) {
         this.name = name;

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head th:replace="fragments :: boots_trap"></head>
+<body>
+<div class="sideBar">
+  <div class="logo">
+    <img th:src="@{/images/logo.png}"/>    </div>
+  <div id="role"><img class="icon" src="./images/person-rolodex.svg" alt=""><span th:text="${name}"></span> </div>
+  <div class="side">
+    <div style="background-color: #0097B2;"><a th:href="@{/}"><img class="icon" src="./images/house.svg" alt="">
+      Accueil</a></div>
+    <div><a th:href="@{/patient}" ><img class="icon" src="./images/person-circle.svg" alt=""> Patient</a>
+    </div>
+    <div><a href=""><img class="icon" src="./images/calendar-week.svg" alt=""> Agenda</a></div>
+    <div><a href=""><img class="icon" src="./images/clipboard-data.svg" alt="">Statistiques</a></div>
+    <div><a href=""><img class="icon" src="./images/cash-coin.svg" alt=""> Caisse</a></div>
+    <div><a th:href="@{/logout}"><img class="icon" th:src="@{/images/box-arrow-right.svg}" alt=""> Déconnexion</a></div>
+  </div>
+</div>
+</body>

@@ -1,7 +1,6 @@
 package ma.dentaltooth.dentaltooth.service;
 
 import ma.dentaltooth.dentaltooth.Dto.UserDto;
-import ma.dentaltooth.dentaltooth.model.Userr;
 import ma.dentaltooth.dentaltooth.model.users.Staff;
 
 public interface UserService {

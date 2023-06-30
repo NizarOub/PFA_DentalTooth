@@ -44,7 +44,7 @@ public class PatientController {
         return "redirect:/patient";
     }
 
-    @GetMapping("/showFormForUpdate/{id}")
+    @GetMapping("/update/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
         Patient patient = servicePatient.getPatientById(id);
         model.addAttribute("patient", patient);
@@ -53,8 +53,8 @@ public class PatientController {
 
     @PostMapping("/update/{id}")
     public String updatePatient(@PathVariable(value = "id") long id, Patient patient){
-        servicePatient.updatePatient(id,patient.getCin(),patient.getNom(),patient.getPrenom(),patient.getAdresse(),patient.getDateNaissance(),
-                patient.getTel(),patient.getMutuelle(),patient.getSexe().name());
+        patient.setId(id);
+        servicePatient.updatePatient(patient);
         return "redirect:/patient";
     }
 

@@ -46,7 +46,7 @@ public class ServicePatient implements IServicePatient {
     }
 
     @Override
-    public void updatePatient(long id, String cin, String nom, String prenom, String adresse, Date dateDeNaissance, String tel, String mutuelle, String sexe) {
-        patientRepository.updatePatient(cin, nom, prenom, adresse, dateDeNaissance, tel, mutuelle, sexe,id);
+    public void updatePatient(Patient patient) {
+        patientRepository.save(patient);
     }
 }

@@ -46,13 +46,16 @@ public class PatientController {
 
     @GetMapping("/showFormForUpdate/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
-
-        // get employee from the service
         Patient patient = servicePatient.getPatientById(id);
-
-        // set employee as a model attribute to pre-populate the form
         model.addAttribute("patient", patient);
-        return "update_patient";
+        return "update2";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updatePatient(@PathVariable(value = "id") long id, Patient patient){
+        servicePatient.updatePatient(id,patient.getCin(),patient.getNom(),patient.getPrenom(),patient.getAdresse(),patient.getDateNaissance(),
+                patient.getTel(),patient.getMutuelle(),patient.getSexe().name());
+        return "redirect:/patient";
     }
 
     @GetMapping("/deletePatient/{id}")

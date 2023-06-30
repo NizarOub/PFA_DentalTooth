@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head th:replace="fragmennts :: boots_trap">
-<title> Ajouter Patient</title>
+  <title> Ajouter Patient</title>
 </head>
-<body>
 
+<body>
 <div class="container1">
   <!-- Side Bar -->
   <div class="sideBar" th:replace="fragmennts :: nav_bar"></div>
@@ -14,11 +14,14 @@
 
     <div class="container">
       <h1 class="my-4">Ajouter un nouveau patient</h1>
+
       <form th:action="@{/patient/savePatient}" th:object="${patient}"  method="post">
+
         <div class="form-group">
           <label >CIN:</label>
           <input type="text" class="form-control"  th:field="*{cin}" required>
         </div>
+
         <div class="form-group">
           <label >Nom:</label>
           <input type="text" class="form-control" name="nom" th:field="*{nom}" required>
@@ -36,7 +39,7 @@
             <input type="date" class="form-control" name="datenaissance" th:field="*{dateNaissance}" required>
         </div>
         <div class="form-group">
-          <label >Tel:</label>
+          <label >Telephone :</label>
           <input type="number" class="form-control" name="tel" th:field="*{tel}" required>
         </div>
         <div class="form-group">
@@ -52,10 +55,8 @@
         </div>
 
         </br>
-        <hr>
 
-        <a th:href="@{/patient}"> Back to Patient List</a>
-
+        <a class="btn btn-success" th:href="@{/patient}"> Back to Patient List </a>
         <button type="submit" class="btn btn-primary">Ajouter</button>
       </form>
     </div>

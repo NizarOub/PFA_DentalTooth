@@ -6,6 +6,7 @@ import ma.dentaltooth.dentaltooth.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,5 +43,10 @@ public class ServicePatient implements IServicePatient {
             throw new RuntimeException(" patient not found for id :: " + id);
         }
         return patient;
+    }
+
+    @Override
+    public void updatePatient(long id, String cin, String nom, String prenom, String adresse, Date dateDeNaissance, String tel, String mutuelle, String sexe) {
+        patientRepository.updatePatient(cin, nom, prenom, adresse, dateDeNaissance, tel, mutuelle, sexe,id);
     }
 }

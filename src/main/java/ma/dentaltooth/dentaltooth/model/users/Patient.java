@@ -18,7 +18,7 @@ public class Patient extends User{
 
     private String mutuelle;
 
-    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY , cascade = CascadeType.ALL)
     private Collection<RendezVous> rendezVousList;
     @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)
     private Collection<HistoriqueMedical> historiqueMedicalList;

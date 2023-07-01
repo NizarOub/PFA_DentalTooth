@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajouter un nouveau patient</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+<div class="container1">
+  <!-- Side Bar -->
+  <div class="sideBar">
+    <div class="logo">
+      <img th:src="@{/images/logo.png}" alt="">
+    </div>
+
+    <div id="role"><img th:src="@{/images/person-rolodex.svg}" />Secrétaire</div>
+    <div class="side">
+      <div style="background-color: #0097B2;"><a th:href="@{Accueil}"><img class="icon" th:src="@{/images/house.svg}" alt="">
+        Accueil</a></div>
+      <div><a th:href="@{patients}"><img class="icon" th:src="@{/images/person-circle.svg}" alt=""> Patient</a>
+      </div>
+      <div><a th:href="@{appointments}"><img class="icon" th:src="@{/images/calendar-week.svg}" alt=""> Agenda</a></div>
+      <div><a href=""><img class="icon" th:src="@{/images/clipboard-data.svg}" alt="">Statistiques</a></div>
+      <div><a href=""><img class="icon" th:src="@{/images/cash-coin.svg}" alt=""> Caisse</a></div>
+      <div><a href=""><img class="icon" th:src="@{/images/box-arrow-right.svg}" alt=""> Déconnexion</a></div>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <div class="container mt-3">
+      <h1>Ajouter un rendez-vous</h1>
+      <form th:action="@{/save1}" method="post">
+        <div class="form-group">
+          <label >Date:</label>
+          <input type="datetime-local" class="form-control" th:value="${appointment.date}" name="date" required>
+        </div>
+
+        <div class="form-group">
+          <label >Patient:</label>
+          <select class="form-control"  name="patient" required>
+            <option th:each="patient : ${ListPatient}" th:value="${appointment.patient.id}" th:text="${appointment.patient.prenom}"></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label >Secrétaire:</label>
+          <select class="form-control" name="secretaire" required>
+            <option th:each="secretaire : ${ListSecretaires}" th:value="${appointment.secretaire.id}" th:text="${appointment.secretaire.prenom}"></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label >Dentiste:</label>
+          <select class="form-control"  name="dentiste" required>
+            <option th:each="dentiste : ${ListDentiste}" th:value="${appointment.dentiste.id}" th:text="${appointment.dentiste.prenom}"></option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,13 +1,10 @@
-package ma.dentaltooth.dentaltooth.service;
+package ma.dentaltooth.dentaltooth.service.Impl;
 
 import ma.dentaltooth.dentaltooth.model.Login;
 
 import ma.dentaltooth.dentaltooth.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
-
 
 
 @Service

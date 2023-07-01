@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragmennts :: boots_trap">
+    <title>Patient</title>
+</head>
+
+<body>
+
+<div class="container1">
+    <!-- Side Bar -->
+    <div class="sideBar" th:replace="fragmennts :: nav_bar"></div>
+    <!-- End Side Bar -->
+
+    <!-- Main -->
+    <div class="main">
+        <div class="container mt-2">
+            <div class="card">
+                <div class="card-header"> Liste des Patients </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Motif</th>
+                            <th>Etat</th>
+                            <th>EstUrgent</th>
+                            <th>Patient Name</th>
+                            <th>Staff Name</th>
+
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="r : ${rdv}">
+                            <td th:text="${r.date}"></td>
+                            <td th:text="${r.motif}"></td>
+                            <td th:text="${r.etat}"></td>
+                            <td th:text="${r.estUrgent}"></td>
+                            <td th:text="${r.patient.prenom}"></td>
+                            <td th:text="${r.staff.nom}"></td>
+                            <td>
+                                <div class="w-75 btn-group" role="group">
+                                    <a th:href="@{/rdv/update/{id}(id=${r.id})}" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i></a>
+                                    <a class="btn btn-danger" onclick="return confirm('Vous voulez supprimer ce Patient ?')" th:href="@{/rdv/deleteRdv/{id}(id=${r.id})}">
+                                        <i class="bi bi-trash"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <a class="btn btn-success" th:href="@{/rdv/showNewRdvForm}">Ajouter Rendez Vous</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

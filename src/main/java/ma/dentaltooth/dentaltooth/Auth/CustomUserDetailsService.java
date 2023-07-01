@@ -1,4 +1,4 @@
-package ma.dentaltooth.dentaltooth.service;
+package ma.dentaltooth.dentaltooth.Auth;
 
 import ma.dentaltooth.dentaltooth.model.users.Staff;
 import ma.dentaltooth.dentaltooth.repository.UserrRepository;

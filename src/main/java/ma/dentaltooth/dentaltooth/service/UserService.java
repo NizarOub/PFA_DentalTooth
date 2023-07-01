@@ -7,4 +7,6 @@ public interface UserService {
     void saveUser(UserDto userDto);
 
     Staff findUserByEmail(String email);
+
+    Staff findUserById(long id);
 }

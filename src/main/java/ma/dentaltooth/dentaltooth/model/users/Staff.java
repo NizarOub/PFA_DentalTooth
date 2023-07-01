@@ -29,8 +29,8 @@ public class Staff extends User{
     private List<Roles> roles = new ArrayList<>();
 
 
-    @OneToMany(mappedBy = "staff")
-    private List<Patient> patients;
+    @OneToMany(mappedBy = "staff", cascade = CascadeType.REMOVE)
+    private List<Patient> patients = new ArrayList<>();
     @OneToMany(mappedBy = "staff")
     private List<RendezVous> rendezVousList;
     public Staff(String name, String email, String password, List<Roles> roles) {

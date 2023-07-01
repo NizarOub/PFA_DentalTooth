@@ -1,8 +1,13 @@
-package ma.dentaltooth.dentaltooth.service;
+package ma.dentaltooth.dentaltooth.service.Impl;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import ma.dentaltooth.dentaltooth.Auth.SecurityUtil;
 import ma.dentaltooth.dentaltooth.model.users.Patient;
+import ma.dentaltooth.dentaltooth.model.users.Staff;
 import ma.dentaltooth.dentaltooth.repository.PatientRepository;
+import ma.dentaltooth.dentaltooth.repository.StaffRepository;
+import ma.dentaltooth.dentaltooth.service.IServicePatient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +21,14 @@ public class ServicePatient implements IServicePatient {
     @Autowired
     private PatientRepository patientRepository;
 
-
+    @Autowired
+    private StaffRepository staffRepository;
 
     @Override
     public Patient creer(Patient patient) {
+        String username = SecurityUtil.getSessionUser();
+        Staff staff = staffRepository.findStaffByEmail(username);
+        patient.setStaff(staff);
         return patientRepository.save(patient);
     }
 

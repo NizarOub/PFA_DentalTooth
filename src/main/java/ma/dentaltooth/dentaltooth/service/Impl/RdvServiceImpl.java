@@ -55,6 +55,9 @@ public class RdvServiceImpl implements RdvService {
 
     @Override
     public void updateRdv(RendezVous rendezVous) {
-    rendezVousRepository.save(rendezVous);
+        String username = SecurityUtil.getSessionUser();
+        Staff staff = staffRepository.findStaffByEmail(username);
+        rendezVous.setStaff(staff);
+        rendezVousRepository.save(rendezVous);
     }
 }

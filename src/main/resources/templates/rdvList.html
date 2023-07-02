@@ -43,6 +43,7 @@
                                     <a th:href="@{/rdv/update/{id}(id=${r.id})}" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i></a>
                                     <a class="btn btn-danger" onclick="return confirm('Vous voulez supprimer ce Patient ?')" th:href="@{/rdv/deleteRdv/{id}(id=${r.id})}">
                                         <i class="bi bi-trash"></i></a>
+                                    <a th:href="@{/Consultation/showNewRdvForm/{id}(id=${r.id})}" class="btn btn-success"><i class="bi bi-pencil-square">Ajouter Consultation</i></a>
                                 </div>
                             </td>
                         </tr>

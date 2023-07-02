@@ -30,6 +30,6 @@ public class RendezVous {
     @ManyToOne
     private Staff staff;
 
-    @OneToMany(mappedBy = "rendezVous",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "rendezVous",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Collection<Consultation> consultationList;
 }

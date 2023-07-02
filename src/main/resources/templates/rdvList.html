@@ -24,9 +24,6 @@
                             <th>Motif</th>
                             <th>Etat</th>
                             <th>EstUrgent</th>
-                            <th>Patient Name</th>
-                            <th>Staff Name</th>
-
                             <th></th>
                         </tr>
                         </thead>
@@ -36,14 +33,13 @@
                             <td th:text="${r.motif}"></td>
                             <td th:text="${r.etat}"></td>
                             <td th:text="${r.estUrgent}"></td>
-                            <td th:text="${r.patient.prenom}"></td>
-                            <td th:text="${r.staff.nom}"></td>
                             <td>
-                                <div class="w-75 btn-group" role="group">
-                                    <a th:href="@{/rdv/update/{id}(id=${r.id})}" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i></a>
-                                    <a class="btn btn-danger" onclick="return confirm('Vous voulez supprimer ce Patient ?')" th:href="@{/rdv/deleteRdv/{id}(id=${r.id})}">
+                                <div class="w-100 btn-group" role="group">
+                                    <a th:href="@{/rdv/{id}(id=${r.id})}" class="btn btn-success mx-1"><i class="bi bi-journal"></i></a>
+                                    <a th:href="@{/rdv/update/{id}(id=${r.id})}" class="btn btn-primary mx-1"><i class="bi bi-pencil-square"></i></a>
+                                    <a class="btn btn-danger mx-1" onclick="return confirm('Vous voulez supprimer ce Patient ?')" th:href="@{/rdv/deleteRdv/{id}(id=${r.id})}">
                                         <i class="bi bi-trash"></i></a>
-                                    <a th:href="@{/Consultation/showNewRdvForm/{id}(id=${r.id})}" class="btn btn-success"><i class="bi bi-pencil-square">Ajouter Consultation</i></a>
+                                    <a th:href="@{/Consultation/showNewRdvForm/{id}(id=${r.id})}" class="btn btn-success mx-1">Ajouter Consultation</a>
                                 </div>
                             </td>
                         </tr>

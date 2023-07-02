@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragmennts :: boots_trap">
+  <title> Ajouter Rendez Vous</title>
+</head>
+<body>
+<div class="container1">
+  <!-- Side Bar -->
+  <div class="sideBar" th:replace="fragmennts :: nav_bar"></div>
+  <!-- End Side Bar -->
+
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        <h1 class="my-4">Detail Rendez Vous</h1>
+        <div class="form-group">
+          <p><strong>Date:</strong> <span th:text="${rdv.date}"></span></p>
+        </div>
+        <div class="form-group">
+          <p><strong>Motif:</strong> <span th:text="${rdv.motif}"></span></p>
+        </div>
+        <div class="form-group">
+          <p><strong>Etat:</strong> <span th:text="${rdv.etat}"></span></p>
+        </div>
+        <div class="form-group">
+          <p><strong>Est Urgent:</strong> <span th:text="${rdv.estUrgent}"></span></p>
+        </div>
+        <div class="form-group">
+          <p><strong>Patient:</strong> <span th:text="${rdv.patient.prenom}"></span></p>
+        </div>
+        <div class="form-group">
+          <p><strong>Staff:</strong> <span th:text="${rdv.staff.nom}"></span></p>
+        </div>
+      </div>
+      <div class="row">
+        <h1> Liste des Consultations </h1>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Total a payer</th>
+            <th scope="col">Reste</th>
+            <th scope="col">Payée</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="consultation : ${rdv.consultationList}">
+            <td th:text="${consultation.totalaPayee}"></td>
+            <td th:text="${consultation.reste}"></td>
+            <td th:text="${consultation.payee}"></td>
+          </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

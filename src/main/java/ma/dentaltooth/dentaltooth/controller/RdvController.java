@@ -38,6 +38,13 @@ public class RdvController {
         return "rdvList";
     }
 
+    @GetMapping("/{id}")
+    public String rdvDetail(@PathVariable("id") long id, Model model){
+        RendezVous rendezVous = rdvService.getRdvById(id);
+        model.addAttribute("rdv",rendezVous);
+        return "rdvDetail";
+    }
+
     @GetMapping("/showNewRdvForm")
     public String showNewRdvForm(Model model){
         // list des patients pour le select

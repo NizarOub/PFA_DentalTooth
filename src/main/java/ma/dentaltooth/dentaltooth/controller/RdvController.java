@@ -55,6 +55,7 @@ public class RdvController {
 
     @GetMapping("/update/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id,Model model){
+        model.addAttribute("patients", servicePatient.lire());
         RendezVous rendezVous = rdvService.getRdvById(id);
         model.addAttribute("rdv", rendezVous);
         return "updateRdv";

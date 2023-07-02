@@ -40,6 +40,7 @@
             <th scope="col">Total a payer</th>
             <th scope="col">Reste</th>
             <th scope="col">Payée</th>
+            <th></th>
           </tr>
           </thead>
           <tbody>
@@ -47,10 +48,12 @@
             <td th:text="${consultation.totalaPayee}"></td>
             <td th:text="${consultation.reste}"></td>
             <td th:text="${consultation.payee}"></td>
+            <td><a th:href="@{/Consultation/update/{id}(id=${consultation.id})}" class="btn btn-success">Modifier</a></td>
           </tr>
           </tbody>
         </table>
     </div>
+      <a th:href="@{/rdv}" class="btn btn-primary">Back to Rendez Vous List</a>
   </div>
 </div>
 </body>

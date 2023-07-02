@@ -40,6 +40,15 @@ public class RdvController {
 
     @GetMapping("/{id}")
     public String rdvDetail(@PathVariable("id") long id, Model model){
+        String username = SecurityUtil.getSessionUser();
+        Staff staff = staffRepository.findStaffByEmail(username);
+        if (staff.getRoles().size() > 1) {
+            String role = staff.getRoles().get(1).getName();
+            model.addAttribute("name", role);
+        } else{
+            String role = staff.getRoles().get(0).getName();
+            model.addAttribute("name", role);
+        }
         RendezVous rendezVous = rdvService.getRdvById(id);
         model.addAttribute("rdv",rendezVous);
         return "rdvDetail";
@@ -47,6 +56,15 @@ public class RdvController {
 
     @GetMapping("/showNewRdvForm")
     public String showNewRdvForm(Model model){
+        String username = SecurityUtil.getSessionUser();
+        Staff staff = staffRepository.findStaffByEmail(username);
+        if (staff.getRoles().size() > 1) {
+            String role = staff.getRoles().get(1).getName();
+            model.addAttribute("name", role);
+        } else{
+            String role = staff.getRoles().get(0).getName();
+            model.addAttribute("name", role);
+        }
         // list des patients pour le select
         model.addAttribute("patients", servicePatient.lire());
         RendezVous rendezVous = new RendezVous();
@@ -62,6 +80,15 @@ public class RdvController {
 
     @GetMapping("/update/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id,Model model){
+        String username = SecurityUtil.getSessionUser();
+        Staff staff = staffRepository.findStaffByEmail(username);
+        if (staff.getRoles().size() > 1) {
+            String role = staff.getRoles().get(1).getName();
+            model.addAttribute("name", role);
+        } else{
+            String role = staff.getRoles().get(0).getName();
+            model.addAttribute("name", role);
+        }
         model.addAttribute("patients", servicePatient.lire());
         RendezVous rendezVous = rdvService.getRdvById(id);
         model.addAttribute("rdv", rendezVous);
@@ -73,8 +100,8 @@ public class RdvController {
         rendezVous.setId(id);
         rdvService.updateRdv(rendezVous);
         return "redirect:/rdv";
-
     }
+
     @GetMapping("/deleteRdv/{id}")
     public String deleteRdv(@PathVariable(value = "id") long id){
         rdvService.supprimer(id);

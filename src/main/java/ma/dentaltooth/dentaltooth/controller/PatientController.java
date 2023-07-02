@@ -40,6 +40,15 @@ public class PatientController {
 
     @GetMapping("/showNewPatientForm")
     public String showNewPatientForm(Model model) {
+        String username = SecurityUtil.getSessionUser();
+        Staff staff = staffRepository.findStaffByEmail(username);
+        if (staff.getRoles().size() > 1) {
+            String role = staff.getRoles().get(1).getName();
+            model.addAttribute("name", role);
+        } else{
+            String role = staff.getRoles().get(0).getName();
+            model.addAttribute("name", role);
+        }
         // create model attribute to bind form data
         Patient patient = new Patient();
         model.addAttribute("patient", patient);
@@ -54,6 +63,15 @@ public class PatientController {
 
     @GetMapping("/update/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+        String username = SecurityUtil.getSessionUser();
+        Staff staff = staffRepository.findStaffByEmail(username);
+        if (staff.getRoles().size() > 1) {
+            String role = staff.getRoles().get(1).getName();
+            model.addAttribute("name", role);
+        } else{
+            String role = staff.getRoles().get(0).getName();
+            model.addAttribute("name", role);
+        }
         Patient patient = servicePatient.getPatientById(id);
         model.addAttribute("patient", patient);
         return "update2";
@@ -68,7 +86,6 @@ public class PatientController {
 
     @GetMapping("/deletePatient/{id}")
     public String deletePatient(@PathVariable(value = "id") long id) {
-
         // call delete employee method
         this.servicePatient.supprimer(id);
         return "redirect:/patient";
